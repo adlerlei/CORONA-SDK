@@ -19,3 +19,25 @@ display.setStatusBar( display.HiddenStatusBar )
 local backgroundImage = display.newImageRect("Background.png",960,640)
 backgroundImage.x = 480 --透過上面指定的變數，設定圖片的x座標。
 backgroundImage.y = 320 --透過上面指定的變數，設定圖片的y座標。
+
+-- 按鈕製作----------------------------------------------------
+local widget = require("widget") -- 引入require("widget")到我們的代碼中，指定給widget變數。就可以使用corona sdk幫我們準備的程式碼製作按鈕
+
+-- 監聽按鈕點擊事件，透過終端機響應是否正常----------
+local key1Pressed = function ( event )
+	if ("began" == event.phase) then
+		print("just pressed key1")
+	end
+end
+------------------------------------------------------
+
+local key1 = widget.newButton{ --宣告即將要放入一個叫做 key1 的按鈕，並在以下設定按鈕的屬性
+	width = 105, --設定按鈕寬度
+	height = 325, --設定按鈕高度
+	id = "1", --設定按鈕的ID
+	defaultFile = "1.png", --設定按鈕還沒按下去的圖片
+	overFile = "1P.png", --設定按鈕點擊按下去後的圖片
+	onEvent = key1Pressed, --設定按鈕按下去後要做的事情
+}
+key1.x = 108 --設定按鈕x軸的座標
+key1.y = 398 --設定按鈕y軸的座標
