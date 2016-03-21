@@ -10,3 +10,12 @@ myText:setFillColor( 1, 110/255, 110/255 )
 local myText1 = display.newText(" i'm Adler Lei ", display.contentCenterX, display.contentWidth, native.systemFont, 30 )
 -- 同樣指定第二個文字變數的文字顏色
 myText1:setFillColor(1,110/255,110/255)
+
+-- 設定手機隱藏上方狀態列功能欄（電池，日期，wifi等等狀態欄位）
+display.setStatusBar( display.HiddenStatusBar )
+
+-- local變數backgroundImage，將display.newImageRect("Background.png",960,640)指定給backgroundImage變數。
+-- display.newImageRect("圖片名稱",960,640)意思是將本圖片引入到手機中。並給出圖片大小的值。
+local backgroundImage = display.newImageRect("Background.png",960,640)
+backgroundImage.x = 480 --透過上面指定的變數，設定圖片的x座標。
+backgroundImage.y = 320 --透過上面指定的變數，設定圖片的y座標。
