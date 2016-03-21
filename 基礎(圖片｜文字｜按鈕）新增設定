@@ -1,18 +1,26 @@
 -- local一個變數為background，使用官方api輸入圖片 display.newImages("圖片名稱", x座標, y座標)
 local background = display.newImage( "world.jpg", display.contentCenterX, display.contentCenterY )
 
+///////////////////////////////
+
 -- local變數myText，使用api新增文字 display.newtext( "文字內容", 文字x座標, 文字y座標, 文字大小, 值 )
 local myText = display.newText( "Hello, World", display.contentCenterX, display.contentWidth / 4, native.systemFont, 40 )
 -- 指定文字顏色，若無指定顏色值，則默認為黑色字體。
 myText:setFillColor( 1, 110/255, 110/255 )
+
+////////////////////////////////
 
 -- 給第二行文字，並且設定不同變數，改變文字y座標及字體大小
 local myText1 = display.newText(" i'm Adler Lei ", display.contentCenterX, display.contentWidth, native.systemFont, 30 )
 -- 同樣指定第二個文字變數的文字顏色
 myText1:setFillColor(1,110/255,110/255)
 
+///////////////////////////////////////////
+
 -- 設定手機隱藏上方狀態列功能欄（電池，日期，wifi等等狀態欄位）
 display.setStatusBar( display.HiddenStatusBar )
+
+////////////////////////////////////////////////
 
 -- local變數backgroundImage，將display.newImageRect("Background.png",960,640)指定給backgroundImage變數。
 -- display.newImageRect("圖片名稱",960,640)意思是將本圖片引入到手機中。並給出圖片大小的值。
@@ -20,21 +28,23 @@ local backgroundImage = display.newImageRect("Background.png",960,640)
 backgroundImage.x = 480 --透過上面指定的變數，設定圖片的x座標。
 backgroundImage.y = 320 --透過上面指定的變數，設定圖片的y座標。
 
--- 按鈕製作----------------------------------------------------
+//////////////////////////////////////////////////////
+
+-- 按鈕製作
 local widget = require("widget") -- 引入require("widget")到我們的代碼中，指定給widget變數。就可以使用corona sdk幫我們準備的程式碼製作按鈕
 
--- 監聽按鈕點擊事件，透過終端機響應是否正常----------
+-- 偵測按下按鈕的時候，要在終端機印出 just pressed key1 的文字訊息
 local key1Pressed = function ( event )
 	if ("began" == event.phase) then
 		print("just pressed key1")
 	end
 end
-------------------------------------------------------
+----------------------------------------------------------
 
-local key1 = widget.newButton{ --宣告即將要放入一個叫做 key1 的按鈕，並在以下設定按鈕的屬性
+local key1 = widget.newButton{ --宣告即將要放入一個叫做 key1 的按鈕，並使用剛剛建立的變數 widget 取代 require("widget") 並在以下設定按鈕的屬性
 	width = 105, --設定按鈕寬度
 	height = 325, --設定按鈕高度
-	id = "1", --設定按鈕的ID
+	id = "1", --設定按鈕的ID，也是按鈕唯一的標籤
 	defaultFile = "1.png", --設定按鈕還沒按下去的圖片
 	overFile = "1P.png", --設定按鈕點擊按下去後的圖片
 	onEvent = key1Pressed, --設定按鈕按下去後要做的事情
