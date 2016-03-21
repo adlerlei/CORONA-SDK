@@ -1,2 +1,12 @@
--- local一個變數為background，使用官方api輸入圖片display.newImages("圖片名稱", x座標, y座標)
+-- local一個變數為background，使用官方api輸入圖片 display.newImages("圖片名稱", x座標, y座標)
 local background = display.newImage( "world.jpg", display.contentCenterX, display.contentCenterY )
+
+-- local變數myText，使用api新增文字 display.newtext( "文字內容", 文字x座標, 文字y座標, 文字大小, 值 )
+local myText = display.newText( "Hello, World", display.contentCenterX, display.contentWidth / 4, native.systemFont, 40 )
+-- 指定文字顏色
+myText:setFillColor( 1, 110/255, 110/255 )
+
+-- 給第二行文字，並且設定不同變數，改變文字y座標及字體大小
+local myText1 = display.newText(" i'm Adler Lei ", display.contentCenterX, display.contentWidth, native.systemFont, 30 )
+-- 同樣指定第二個文字變數的文字顏色
+myText1:setFillColor(1,110/255,110/255)
