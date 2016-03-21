@@ -1,0 +1,2 @@
+-- local一個變數為background，使用官方api輸入圖片display.newImages("圖片名稱", x座標, y座標)
+local background = display.newImage( "world.jpg", display.contentCenterX, display.contentCenterY )
