@@ -1,2 +1,2 @@
 # CORONA-SDK
-my coroba sdk note ..
+my coroba sdk notes ..
